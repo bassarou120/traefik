@@ -1,0 +1,26 @@
+
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+
+api:
+  dashboard: true
+  insecure: true  # ⚠️ Désactiver en prod
+
+providers:
+  docker:
+    exposedByDefault: false
+
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: yacouboubassarou@gmail.com
+      storage: acme.json
+      httpChallenge:
+        entryPoint: web
